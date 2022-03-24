@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/styles/navbar.css">
+<div class="header">
+  <ul class="ul">
+    {{#unless user}}
+    <li><a href="/">Домашняя страница</a></li>
+    <li><a href="/register">Регистрация</a></li>
+    <li><a href="/login">Вход</a></li>
+    {{/unless}}
+    {{#if user}}
+    <li><a href="/check">Выбор стадиона</a></li>
+    <li><a href="/logout">Выход</a></li>
+    {{/if}}
+  </ul>
+</div>
+<div>

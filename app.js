@@ -10,6 +10,11 @@ const FileStore = require('session-file-store')(session);
 const hbs = require('hbs');
 
 // Здесь require ручек
+const introRouter = require('./routers/intro');
+const registerRouter = require('./routers/register');
+const loginRouter = require('./routers/login');
+const checkRouter = require('./routers/check');
+const logoutRouter = require('./routers/logout');
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +38,11 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 // Здесь мидлвары на ручки
+app.use('/', introRouter);
+app.use('/register', registerRouter);
+app.use('/login', loginRouter);
+app.use('/check', checkRouter);
+app.use('/logout', logoutRouter);
 
 app.use((req, res) => {
   res.status(404).json('Запрашиваемой страницы не существует!');
