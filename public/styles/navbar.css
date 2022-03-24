@@ -1,0 +1,23 @@
+.header {
+  background-color:skyblue;
+  opacity: 0.5;
+  color: green;
+  opacity: 0.6;
+  border-radius: 5px;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+li {
+  list-style-type: none;
+  font-size: 50px;
+  color: purple
+}
+a {
+  font-style: italic;
+  text-decoration: none;
+  color: purple;
+}
