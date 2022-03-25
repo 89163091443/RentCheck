@@ -2,69 +2,13 @@
 {{#each address}}
 <div>Ваш адрес: {{'Addresses.street'}} улица, дом: {{'Addresses.house'}}</div>
 {{/each}}
-<h1>На данной карте отмеченны все стадионы, где можно арендовать поляну!</h1>
+<h1>На данной карте отмеченны все стадионы, где можно арендовать поляну! А также Ваш домашний адрес.</h1>
 
 
 <div id="map" style="width: 100%; height: 700px"></div>
-<script type="text/javascript">
-    // Функция ymaps.ready() будет вызвана, когда
-    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-    ymaps.ready(init);
-    function init(){
-        // Создание карты.
-        var myMap = new ymaps.Map("map", {
-            // Координаты центра карты.
-            // Порядок по умолчанию: «широта, долгота».
-            // Чтобы не определять координаты центра карты вручную,
-            // воспользуйтесь инструментом Определение координат.
-            center: [55.76, 37.64],
-            // Уровень масштабирования. Допустимые значения:
-            // от 0 (весь мир) до 19.
-            zoom: 12,
-        });
-        const home = new ymaps.Placemark([55.743233, 37.767735], {
-          balloonContent:  'Мой дом',
-          hintContent: 'Мой дом',
-          preset: 'islands#blackStretchyIcon',
-          })
-        const spartak = new ymaps.Placemark([55.804020, 37.697868], {
-          balloonContent:  'Стадион Спартак',
-          hintContent: 'ЛФЛ ВАО',
-          preset: 'islands#blackStretchyIcon',
-          })
-          const luzhniki = new ymaps.Placemark([55.715742, 37.553728], {
-          balloonContent:  'Стадион Лужники',
-          hintContent: 'Аренда',
-          preset: 'islands#blackStretchyIcon',
-          })
-          const metalurg = new ymaps.Placemark([55.715742, 37.553728], {
-          balloonContent:  'Стадион Металург',
-          hintContent: 'AFL',
-          preset: 'islands#blackStretchyIcon',
-          })
-          const trud = new ymaps.Placemark([55.695522, 37.618190], {
-          balloonContent:  'Стадион Труд',
-          hintContent: 'AFL',
-          preset: 'islands#blackStretchyIcon',
-          })
-          const CSKA = new ymaps.Placemark([55.792320, 37.519999], {
-          balloonContent:  'Стадион Песчаное',
-          hintContent: 'ЛФЛ Север',
-          preset: 'islands#blackStretchyIcon',
-          })
-
-        myMap.geoObjects
-        .add(home)
-        .add(spartak)
-        .add(luzhniki)
-        .add(metalurg)
-        .add(trud)
-        .add(CSKA)
-        
-
-    }
-</script>
-
+<button id="destroyButton">Удалить карту</button>
+<script src="/map/innerMap.js"></script>
+<script src="/map/points.js"></script>
 
 
 

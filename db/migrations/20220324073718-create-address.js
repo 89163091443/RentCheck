@@ -13,6 +13,9 @@ module.exports = {
       house: {
         type: Sequelize.STRING,
       },
+      coord: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

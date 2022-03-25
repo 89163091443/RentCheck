@@ -10,20 +10,17 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
   const {
-    login, email, password, street, house,
+    login, email, password, street, house, coord
   } = req.body;
-  // console.log('===>', login, email, password, street, house);
-  if (login && email && password && street && house) {
+  console.log(coord.pos);
+  if (login && email && password && street && house && coord) {
     try {
       const findUser = await User.findOne({ where: { email } });
       if (findUser) {
         res.sendStatus(401);
       } else {
         const user = await User.create({ login, email, password: sha256(password) });
-        // console.log('======>', user);
-        const address = await Address.create({ street, house });
-        // console.log('======>', address);
-
+        const address = await Address.create({ street, house, coord: coord.pos });
         const UserAddress = await User_Address.create({ userId: user.id, addressId: address.id });
         res.sendStatus(201);
       }
