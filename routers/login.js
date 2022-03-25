@@ -10,6 +10,7 @@ router.post('/', async (req, res) => {
   if (email && password) {
     try {
       const user = await User.findOne({ where: { email } });
+      // console.log(user);
       if (user) {
         if (user.password === sha256(password)) {
           req.session.user = {};

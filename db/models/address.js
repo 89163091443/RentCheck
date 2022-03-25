@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   Address.init({
     street: DataTypes.TEXT,
     house: DataTypes.STRING,
+    coord: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Address',
